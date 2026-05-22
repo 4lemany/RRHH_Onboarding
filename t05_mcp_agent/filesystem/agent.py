@@ -20,14 +20,10 @@ MCP_SERVER_URL = os.getenv("MCP_SERVER_URL", "http://127.0.0.1:9001/sse")
 
 root_agent = Agent(
     model=get_model(),
-    name="filesystem_agent",
-    description="Manages simple text notes using MCP tools.",
+    name="root_agent",
+    description="Es el agente orquestador que decide que hacer.",
     instruction=(
-        "You are a notes assistant.\n"
-        "Use create_note to save notes.\n"
-        "Use list_notes to show available notes.\n"
-        "Use read_note to read a specific note.\n"
-        "Do not invent note content. Always use tools."
+        "Si el usuario hace preguntas sobre impuestos, facturación, IVA o cuentas, usa la herramienta consultar_contabilidad. Si hace preguntas sobre contratos, despidos o nóminas, usa consultar_laboral. Si es un saludo o pregunta fuera de tema, responde tú mismo de forma sencilla."
     ),
     tools=[
         McpToolset(
