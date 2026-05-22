@@ -1,0 +1,6 @@
+Hello from sample.txt!
+
+This file contains some sample data for testing the MCP filesystem agent.
+
+Numbers: 42, 7, 13, 99, 256
+Colors: red, green, blue
