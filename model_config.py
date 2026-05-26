@@ -32,7 +32,7 @@ def get_model():
     if provider == "gemini":
         from google.adk.models.lite_llm import LiteLlm
 
-        return LiteLlm(model=os.getenv("GEMINI_MODEL", "gemma-3-27b-it"))
+        return LiteLlm(model=os.getenv("GEMINI_MODEL", "gemini-2.5-flash-lite"))
 
     if provider == "vertex":
         # The ADK's built-in Gemini class is used when the model is a plain string.
@@ -43,7 +43,7 @@ def get_model():
         os.environ.setdefault("GOOGLE_GENAI_USE_VERTEXAI", "True")
         return os.getenv("VERTEX_MODEL", "gemini-2.5-flash-lite")
 
-    return os.getenv("GEMINI_MODEL", "gemma-3-27b-it")
+    return os.getenv("GEMINI_MODEL", "gemini-2.5-flash-lite")
 
 
 def get_embedding_model():
